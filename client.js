@@ -30,7 +30,7 @@ var Client = IgeClass.extend({
 
 				self.textures = {};
 
-				self.textures.backgroundTexture = new IgeTexture('graphics/background.png');
+				self.textures.backgroundTexture = new IgeTexture('graphics/background.jpg');
 				self.textures.roomBackgroundTexture = new IgeTexture('graphics/room-background.png');
 				self.textures.starTexture = new IgeTexture('graphics/star.png');
 
@@ -44,13 +44,13 @@ var Client = IgeClass.extend({
 				.translateTo(0,-(64*9),0)
 				.mount(self.mainScene);
 
-				self.bgTileMap.addTexture(self.textures.backgroundTexture);
-
-				for(x = 0; x <= 20; x++) {
-					for(y = 0; y <= 20; y++) {
-						self.bgTileMap.paintTile(x, y, 0, 1);
-					}
-				}
+				self.bgTileMapBackground = new IgeEntity()
+				.isometric(true)
+				.bounds2d(2000, 2000)
+				.anchor(0,0)
+				.texture(self.textures.backgroundTexture)
+				.mount(self.mainScene)
+				.translateTo(0,0,0);
 
 				self.tileMap1 = new IgeTextureMap()
 				.id('tileMap1')
@@ -134,7 +134,7 @@ var Client = IgeClass.extend({
 		    .height(60)
 		    .textAlignX(0)
 		    .textAlignY(0)
-		    .colorOverlay('#000')
+		    .colorOverlay('#333')
 		    .nativeFont('16px Roboto')
 		    .autoWrap(true)
 		    .text(self.customer.getDescription())
@@ -164,7 +164,10 @@ var Client = IgeClass.extend({
 		    	self.generateResults();
 		    	self.resultsBackground.opacity(1);
 		    	self.resultsWindow.opacity(1);
+		    	self.readyButton.mouseEventsActive(false);
+		    	self.resultsWindowNewCustomerButton.mouseEventsActive(true);
 		    })
+		    .mouseEventsActive(false)
 		    .mount(self.mainScene);
 
 		    self.resultsBackground = new IgeUiEntity()
@@ -174,6 +177,7 @@ var Client = IgeClass.extend({
 		    .top(0)
 		    .left(0)
 		    .backgroundColor('rgba(0,0,0,0.7)')
+		    .opacity(0)
 		    .mount(self.mainScene);
 
 		    self.resultsWindow = new IgeUiEntity()
@@ -184,6 +188,7 @@ var Client = IgeClass.extend({
 		    .left("10%")
 		    .backgroundColor('#ffc')
 		    .borderRadius(5)
+		    .opacity(0)
 		    .mount(self.mainScene);
 
 		    self.resultsWindowTitle = new IgeFontEntity()
@@ -209,7 +214,7 @@ var Client = IgeClass.extend({
 		    .height(120)
 		    .textAlignX(0)
 		    .textAlignY(0)
-		    .colorOverlay('#000')
+		    .colorOverlay('#333')
 		    .nativeFont('16px Roboto')
 		    .autoWrap(true)
 		    .text(self.customer.getDescription())
@@ -231,8 +236,8 @@ var Client = IgeClass.extend({
 		    self.resultsWindowTableItem = new IgeFontEntity()
 		    .layer(12)
 		    .top(130)
-		    .left(300)
-		    .width(120)
+		    .left(280)
+		    .width(150)
 		    .height(20)
 		    .textAlignX(0)
 		    .textAlignY(0)
@@ -270,8 +275,8 @@ var Client = IgeClass.extend({
 		    self.resultsWindowBedItem = new IgeFontEntity()
 		    .layer(12)
 		    .top(170)
-		    .left(300)
-		    .width(120)
+		    .left(280)
+		    .width(150)
 		    .height(20)
 		    .textAlignX(0)
 		    .textAlignY(0)
@@ -309,8 +314,8 @@ var Client = IgeClass.extend({
 		    self.resultsWindowBathroomItem = new IgeFontEntity()
 		    .layer(12)
 		    .top(210)
-		    .left(300)
-		    .width(120)
+		    .left(280)
+		    .width(150)
 		    .height(20)
 		    .textAlignX(0)
 		    .textAlignY(0)
@@ -348,8 +353,8 @@ var Client = IgeClass.extend({
 		    self.resultsWindowWindowItem = new IgeFontEntity()
 		    .layer(12)
 		    .top(250)
-		    .left(300)
-		    .width(120)
+		    .left(280)
+		    .width(150)
 		    .height(20)
 		    .textAlignX(0)
 		    .textAlignY(0)
@@ -466,10 +471,176 @@ var Client = IgeClass.extend({
 		    	
 		    	self.resultsBackground.opacity(0);
 		    	self.resultsWindow.opacity(0);
+
+		    	self.resultsWindowNewCustomerButton.mouseEventsActive(false);
+
+		    	self.readyButton.mouseEventsActive(true);
+
 		    })
+		    .mouseEventsActive(false)
 		    .mount(self.resultsWindow);
 
-		    self.generateResults();
+		    self.scoreTitle = new IgeFontEntity()
+				.layer(5)
+		    .top(10)
+		    .left(10)
+		    .width(300)
+		    .height(40)
+		    .textAlignX(0)
+		    .textAlignY(0)
+		    .colorOverlay('#ffffff')
+		    .nativeFont('21px Roboto')
+		    .nativeStroke(3)
+		    .nativeStrokeColor('#666')
+		    .text('Score')
+		    .mount(self.mainScene);
+
+		    self.score = new IgeFontEntity()
+				.layer(5)
+		    .top(50)
+		    .left(10)
+		    .width(290)
+		    .height(60)
+		    .textAlignX(0)
+		    .textAlignY(0)
+		    .colorOverlay('#333')
+		    .nativeFont('24px Roboto')
+		    .autoWrap(true)
+		    .text(0)
+		    .mount(self.mainScene);
+
+		    self.aboutBackground = new IgeUiEntity()
+		    .layer(10)
+		    .width(1000)
+		    .height(1000)
+		    .top(0)
+		    .left(0)
+		    .backgroundColor('rgba(0,0,0,0.7)')
+		    .opacity(1)
+		    .mount(self.mainScene);
+
+		    self.aboutWindow = new IgeUiEntity()
+		    .layer(11)
+		    .width("80%")
+		    .height("80%")
+		    .top(40)
+		    .left("10%")
+		    .backgroundColor('#ffc')
+		    .borderRadius(5)
+		    .opacity(1)
+		    .mount(self.mainScene);
+
+		    self.aboutWindowTitle = new IgeFontEntity()
+		    .layer(12)
+		    .top(10)
+		    .left(0)
+		    .width("100%")
+		    .height(40)
+		    .textAlignX(1)
+		    .textAlignY(0)
+		    .colorOverlay('#ffffff')
+		    .nativeFont('26px Roboto')
+		    .nativeStroke(3)
+		    .nativeStrokeColor('#333')
+		    .text('About this game')
+		    .mount(self.aboutWindow);
+
+		    self.aboutWindowDesc = new IgeFontEntity()
+		    .layer(12)
+		    .top(70)
+		    .left(10)
+		    .width("90%")
+		    .height(260)
+		    .textAlignX(0)
+		    .textAlignY(0)
+		    .colorOverlay('#333')
+		    .nativeFont('18px Roboto')
+		    .autoWrap(true)
+		    .text("Game for Ludum Dare 37, theme: 'One Room': ONE HOTEL ROOM. You own the worst hotel in the world: you only have one hotel room, but you are determined to offer the best hotel experience available, so before each customer arrives at the hotel room, you change the room completely. The goal of the game is to change the room equipment according the current customer's background information. When you are ready, press READY to check the customer's feedback.")
+		    .mount(self.aboutWindow);
+
+		    self.aboutWindowMaker = new IgeFontEntity()
+		    .layer(12)
+		    .top(230)
+		    .left(10)
+		    .width("90%")
+		    .height(320)
+		    .textAlignX(0)
+		    .textAlignY(0)
+		    .colorOverlay('#333')
+		    .nativeFont('18px Roboto')
+		    .autoWrap(true)
+		    .text("Made by Kristian Polso. Website: polso.info / Twitter: @kristian_polso")
+		    .mount(self.aboutWindow);
+
+		    self.aboutWindowBackButton = new IgeFontEntity()
+		    .bottom(20)
+		    .right(10)
+		    .width(200)
+		    .height(60)
+		    .textAlignX(1)
+		    .textAlignY(0)
+		    .backgroundColor('rgba(0,0,0,0.3)')
+		    .colorOverlay('#ffffff')
+		    .nativeFont('21px Roboto')
+		    .nativeStroke(3)
+		    .nativeStrokeColor('#666')
+		    .text('BACK TO GAME')
+		    .mouseOver(function() {
+		      this.backgroundColor('rgba(0,0,0,0.6)');
+		    })
+		    .mouseOut(function() {
+		      this.backgroundColor('rgba(0,0,0,0.3)');
+		    })
+		    .mouseUp(function() {
+		    	
+		    	self.aboutBackground.opacity(0);
+		    	self.aboutWindow.opacity(0);
+
+		    	self.aboutWindowBackButton.mouseEventsActive(false);
+
+		    	self.readyButton.mouseEventsActive(true);
+
+		    	self.aboutButton.mouseEventsActive(true);
+
+		    })
+		    .mouseEventsActive(true)
+		    .mount(self.aboutWindow);
+
+		    self.aboutButton = new IgeFontEntity()
+		    .layer(8)
+		    .top(20)
+		    .right(10)
+		    .width(200)
+		    .height(60)
+		    .textAlignX(1)
+		    .textAlignY(0)
+		    .backgroundColor('rgba(0,0,0,0.3)')
+		    .colorOverlay('#ffffff')
+		    .nativeFont('21px Roboto')
+		    .nativeStroke(3)
+		    .nativeStrokeColor('#666')
+		    .text('ABOUT THIS GAME')
+		    .mouseOver(function() {
+		      this.backgroundColor('rgba(0,0,0,0.6)');
+		    })
+		    .mouseOut(function() {
+		      this.backgroundColor('rgba(0,0,0,0.3)');
+		    })
+		    .mouseUp(function() {
+		    	
+		    	self.aboutBackground.opacity(1);
+		    	self.aboutWindow.opacity(1);
+
+		    	self.aboutWindowBackButton.mouseEventsActive(true);
+
+		    	self.readyButton.mouseEventsActive(false);
+
+		    	self.aboutButton.mouseEventsActive(false);
+
+		    })
+		    .mouseEventsActive(false)
+		    .mount(self.mainScene);
 
 			}
 
@@ -574,7 +745,7 @@ var Client = IgeClass.extend({
 			.color('#3d3')
 			.text('I love it!');
 
-		} else if(windowScore>60) {
+		} else if(windowScore>100) {
 
 			self.resultsWindowWindowResult
 			.color('#333')
@@ -594,6 +765,8 @@ var Client = IgeClass.extend({
 
 		self.resultsWindowScore.text(score);
 
+		self.score.text(parseInt(self.score.text())+score);
+
 		var stars = Math.floor(score/200);
 
 		for(var i = 1; i <= 5; i++) {
@@ -609,8 +782,6 @@ var Client = IgeClass.extend({
 			}
 
 		}
-
-		console.log(score);
 
 	}
 

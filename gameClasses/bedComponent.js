@@ -61,6 +61,7 @@ var bedComponent = IgeClass.extend({
       }
       self.optionsVisible = !self.optionsVisible;
       Object.keys(self.types).forEach(function(key) {
+        self._entity['changeButton-'+key].mouseEventsActive(opacity);
         self._entity['changeButton-'+key].opacity(opacity);
         self._entity['changeButtonTooltip-'+key].opacity(0);
       });
@@ -96,7 +97,8 @@ var bedComponent = IgeClass.extend({
       })
       .mouseUp(function() {
         self.changeType(this.data('value'));
-      });
+      })
+      .mouseEventsActive(false);
 
       self._entity['changeButtonImage-'+key] = new IgeEntity()
       .texture(self.texture)

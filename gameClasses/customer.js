@@ -60,16 +60,16 @@ var Customer = IgeEntity.extend({
       name: "Fashion Blogger",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
-          calculator: 70,
+          guide: 50,
+          radio: 20,
+          calculator: 40,
           art_tickets: 140
         },
         bed: {
           stylish: 140,
-          hospital: 70,
-          chocolate: 70,
-          flower: 70
+          hospital: 30,
+          chocolate: 80,
+          flower: 90
         },
         window: {
           view: 100,
@@ -86,21 +86,21 @@ var Customer = IgeEntity.extend({
       name: "Nurse",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
-          calculator: 70,
+          guide: 50,
+          radio: 50,
+          calculator: 50,
           art_tickets: 140
         },
         bed: {
-          stylish: 70,
+          stylish: 50,
           hospital: 140,
-          chocolate: 70,
+          chocolate: 90,
           flower: 70
         },
         window: {
           view: 100,
           horse: 50,
-          tv: 50
+          tv: 70
         },
         bathroom: {
           shower: 120,
@@ -112,21 +112,21 @@ var Customer = IgeEntity.extend({
       name: "Accountant",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
+          guide: 50,
+          radio: 50,
           calculator: 140,
           art_tickets: 70
         },
         bed: {
           stylish: 140,
-          hospital: 70,
-          chocolate: 70,
-          flower: 70
+          hospital: 50,
+          chocolate: 50,
+          flower: 90
         },
         window: {
-          view: 50,
+          view: 20,
           horse: 100,
-          tv: 50
+          tv: 70
         },
         bathroom: {
           shower: 120,
@@ -139,19 +139,19 @@ var Customer = IgeEntity.extend({
       scores: {
         table: {
           guide: 140,
-          radio: 70,
-          calculator: 70,
+          radio: 90,
+          calculator: 30,
           art_tickets: 70
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
+          stylish: 60,
+          hospital: 30,
           chocolate: 140,
           flower: 70
         },
         window: {
           view: 50,
-          horse: 50,
+          horse: 30,
           tv: 100
         },
         bathroom: {
@@ -164,20 +164,20 @@ var Customer = IgeEntity.extend({
       name: "Programmer",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
+          guide: 30,
+          radio: 80,
           calculator: 140,
           art_tickets: 70
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
-          chocolate: 70,
+          stylish: 50,
+          hospital: 30,
+          chocolate: 100,
           flower: 140
         },
         window: {
           view: 50,
-          horse: 50,
+          horse: 30,
           tv: 100
         },
         bathroom: {
@@ -190,15 +190,15 @@ var Customer = IgeEntity.extend({
       name: "Musician",
       scores: {
         table: {
-          guide: 70,
+          guide: 50,
           radio: 140,
-          calculator: 70,
-          art_tickets: 70
+          calculator: 30,
+          art_tickets: 90
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
-          chocolate: 70,
+          stylish: 100,
+          hospital: 30,
+          chocolate: 50,
           flower: 140
         },
         window: {
@@ -217,14 +217,14 @@ var Customer = IgeEntity.extend({
       scores: {
         table: {
           guide: 140,
-          radio: 70,
-          calculator: 70,
-          art_tickets: 70
+          radio: 80,
+          calculator: 50,
+          art_tickets: 30
         },
         bed: {
           stylish: 140,
-          hospital: 70,
-          chocolate: 70,
+          hospital: 40,
+          chocolate: 80,
           flower: 70
         },
         window: {
@@ -242,19 +242,19 @@ var Customer = IgeEntity.extend({
       name: "Olympic Swimmer",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
-          calculator: 70,
+          guide: 90,
+          radio: 50,
+          calculator: 40,
           art_tickets: 140
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
+          stylish: 80,
+          hospital: 40,
           chocolate: 140,
           flower: 70
         },
         window: {
-          view: 50,
+          view: 80,
           horse: 50,
           tv: 100
         },
@@ -271,21 +271,21 @@ var Customer = IgeEntity.extend({
       name: "Painting",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
-          calculator: 70,
+          guide: 90,
+          radio: 50,
+          calculator: 40,
           art_tickets: 140
         },
         bed: {
           stylish: 140,
-          hospital: 70,
-          chocolate: 70,
-          flower: 70
+          hospital: 30,
+          chocolate: 50,
+          flower: 90
         },
         window: {
           view: 100,
-          horse: 50,
-          tv: 50
+          horse: 60,
+          tv: 30
         },
         bathroom: {
           shower: 120,
@@ -298,20 +298,20 @@ var Customer = IgeEntity.extend({
       scores: {
         table: {
           guide: 140,
-          radio: 70,
-          calculator: 70,
+          radio: 50,
+          calculator: 30,
           art_tickets: 70
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
-          chocolate: 70,
+          stylish: 50,
+          hospital: 50,
+          chocolate: 90,
           flower: 140
         },
         window: {
           view: 100,
           horse: 50,
-          tv: 50
+          tv: 70
         },
         bathroom: {
           shower: 120,
@@ -324,20 +324,20 @@ var Customer = IgeEntity.extend({
       scores: {
         table: {
           guide: 140,
-          radio: 70,
-          calculator: 70,
-          art_tickets: 70
+          radio: 60,
+          calculator: 30,
+          art_tickets: 80
         },
         bed: {
           stylish: 140,
-          hospital: 70,
-          chocolate: 70,
-          flower: 70
+          hospital: 40,
+          chocolate: 80,
+          flower: 60
         },
         window: {
           view: 100,
           horse: 50,
-          tv: 50
+          tv: 60
         },
         bathroom: {
           shower: 120,
@@ -349,14 +349,14 @@ var Customer = IgeEntity.extend({
       name: "Movies",
       scores: {
         table: {
-          guide: 70,
-          radio: 70,
-          calculator: 70,
+          guide: 90,
+          radio: 80,
+          calculator: 50,
           art_tickets: 140
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
+          stylish: 50,
+          hospital: 90,
           chocolate: 140,
           flower: 70
         },
@@ -376,19 +376,19 @@ var Customer = IgeEntity.extend({
       scores: {
         table: {
           guide: 140,
-          radio: 70,
-          calculator: 70,
-          art_tickets: 70
+          radio: 60,
+          calculator: 50,
+          art_tickets: 30
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
-          chocolate: 70,
+          stylish: 40,
+          hospital: 50,
+          chocolate: 80,
           flower: 140
         },
         window: {
           view: 100,
-          horse: 50,
+          horse: 60,
           tv: 50
         },
         bathroom: {
@@ -401,15 +401,15 @@ var Customer = IgeEntity.extend({
       name: "Gardening",
       scores: {
         table: {
-          guide: 70,
+          guide: 50,
           radio: 140,
-          calculator: 70,
+          calculator: 40,
           art_tickets: 70
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
-          chocolate: 70,
+          stylish: 50,
+          hospital: 30,
+          chocolate: 50,
           flower: 140
         },
         window: {
@@ -424,18 +424,18 @@ var Customer = IgeEntity.extend({
       }
     },
     riding: {
-      name: "Fashion Blogger",
+      name: "Horseback Riding",
       scores: {
         table: {
           guide: 140,
-          radio: 70,
-          calculator: 70,
+          radio: 50,
+          calculator: 50,
           art_tickets: 70
         },
         bed: {
-          stylish: 70,
-          hospital: 70,
-          chocolate: 70,
+          stylish: 100,
+          hospital: 50,
+          chocolate: 50,
           flower: 140
         },
         window: {
