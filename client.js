@@ -113,7 +113,7 @@ var Client = IgeClass.extend({
 
 				self.customerInformationTitle = new IgeFontEntity()
 				.layer(5)
-		    .bottom(170)
+		    .bottom(110)
 		    .left(10)
 		    .width(300)
 		    .height(40)
@@ -128,7 +128,7 @@ var Client = IgeClass.extend({
 
 		    self.customerInformation = new IgeFontEntity()
 				.layer(5)
-		    .bottom(110)
+		    .bottom(50)
 		    .left(10)
 		    .width(290)
 		    .height(60)
@@ -396,7 +396,7 @@ var Client = IgeClass.extend({
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
 		    .bottom(90)
-		    .left(228+(45*1))
+		    .left(208+(45*1))
 		    .mount(self.resultsWindow);
 
 		    self.resultsWindowStar2 = new IgeUiEntity()
@@ -404,7 +404,7 @@ var Client = IgeClass.extend({
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
 		    .bottom(90)
-		    .left(228+(45*2))
+		    .left(208+(45*2))
 		    .mount(self.resultsWindow);
 
 		    self.resultsWindowStar3 = new IgeUiEntity()
@@ -412,7 +412,7 @@ var Client = IgeClass.extend({
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
 		    .bottom(90)
-		    .left(228+(45*3))
+		    .left(208+(45*3))
 		    .mount(self.resultsWindow);
 
 		    self.resultsWindowStar4 = new IgeUiEntity()
@@ -420,7 +420,7 @@ var Client = IgeClass.extend({
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
 		    .bottom(90)
-		    .left(228+(45*4))
+		    .left(208+(45*4))
 		    .mount(self.resultsWindow);
 
 		    self.resultsWindowStar5 = new IgeUiEntity()
@@ -428,7 +428,7 @@ var Client = IgeClass.extend({
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
 		    .bottom(90)
-		    .left(228+(45*5))
+		    .left(208+(45*5))
 		    .mount(self.resultsWindow);
 
 		    self.resultsWindowScore = new IgeFontEntity()
@@ -547,10 +547,10 @@ var Client = IgeClass.extend({
 
 		    self.aboutWindowDesc = new IgeFontEntity()
 		    .layer(12)
-		    .top(70)
+		    .top(60)
 		    .left(10)
 		    .width("90%")
-		    .height(260)
+		    .height(230)
 		    .textAlignX(0)
 		    .textAlignY(0)
 		    .colorOverlay('#333')
@@ -561,16 +561,16 @@ var Client = IgeClass.extend({
 
 		    self.aboutWindowMaker = new IgeFontEntity()
 		    .layer(12)
-		    .top(230)
+		    .top(340)
 		    .left(10)
 		    .width("90%")
-		    .height(320)
+		    .height(40)
 		    .textAlignX(0)
 		    .textAlignY(0)
 		    .colorOverlay('#333')
 		    .nativeFont('18px Roboto')
 		    .autoWrap(true)
-		    .text("Made by Kristian Polso. Website: polso.info / Twitter: @kristian_polso")
+		    .text("Made by Kristian Polso. Website: risse.itch.io / Twitter: @kristian_polso")
 		    .mount(self.aboutWindow);
 
 		    self.aboutWindowBackButton = new IgeFontEntity()
