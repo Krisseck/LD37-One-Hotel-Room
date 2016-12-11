@@ -373,7 +373,7 @@ var Client = IgeClass.extend({
 
 		    self.resultsWindowYourScore = new IgeFontEntity()
 		    .layer(12)
-		    .top(310)
+		    .bottom(140)
 		    .left(0)
 		    .width("100%")
 		    .height(40)
@@ -390,7 +390,7 @@ var Client = IgeClass.extend({
 		    .texture(self.textures.starTexture)
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
-		    .bottom(140)
+		    .bottom(90)
 		    .left(228+(45*1))
 		    .mount(self.resultsWindow);
 
@@ -398,7 +398,7 @@ var Client = IgeClass.extend({
 		    .texture(self.textures.starTexture)
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
-		    .bottom(140)
+		    .bottom(90)
 		    .left(228+(45*2))
 		    .mount(self.resultsWindow);
 
@@ -406,7 +406,7 @@ var Client = IgeClass.extend({
 		    .texture(self.textures.starTexture)
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
-		    .bottom(140)
+		    .bottom(90)
 		    .left(228+(45*3))
 		    .mount(self.resultsWindow);
 
@@ -414,7 +414,7 @@ var Client = IgeClass.extend({
 		    .texture(self.textures.starTexture)
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
-		    .bottom(140)
+		    .bottom(90)
 		    .left(228+(45*4))
 		    .mount(self.resultsWindow);
 
@@ -422,13 +422,13 @@ var Client = IgeClass.extend({
 		    .texture(self.textures.starTexture)
 		    .anchor(0, 0)
 		    .bounds2d(40, 40)
-		    .bottom(140)
+		    .bottom(90)
 		    .left(228+(45*5))
 		    .mount(self.resultsWindow);
 
 		    self.resultsWindowScore = new IgeFontEntity()
 		    .layer(12)
-		    .top(420)
+		    .bottom(40)
 		    .left(0)
 		    .width("100%")
 		    .height(40)

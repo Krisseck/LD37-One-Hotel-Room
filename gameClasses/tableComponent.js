@@ -81,7 +81,7 @@ var tableComponent = IgeClass.extend({
       .backgroundColor('rgba(0,0,0,0.3)')
       .opacity(0)
       .bottom(0)
-      .left(i*70)
+      .left(-70+i*70)
       .width(60)
       .height(60)
       .data('value', key)
